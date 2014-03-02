@@ -7,6 +7,7 @@
 static const int MAX_LOG_FILE_SIZE  = 1024 * 1024 * 10;		 // 滚动日志的最大大小
 static const int MAX_LOG_FILE_COUNT = 10;					 // 滚动日志的最大份数
 
+
 static char g_szLogBuff[512];
 static char g_szLogBuffFuncionLine[1024];
 
@@ -63,11 +64,7 @@ void Logger::log_info(const char* fmt, ...)
     vsnprintf(g_szLogBuff, sizeof(g_szLogBuff), fmt, vl);
     va_end(vl);
 
-    memset(g_szLogBuffFuncionLine, 0, sizeof(g_szLogBuffFuncionLine));
-    snprintf(g_szLogBuffFuncionLine, sizeof(g_szLogBuffFuncionLine),
-        "%s", g_szLogBuff);
-
-    m_category->info(g_szLogBuffFuncionLine);
+    m_category->info(g_szLogBuff);
 }
 
 
@@ -80,9 +77,5 @@ void Logger::log_error(const char* fmt, ...)
     vsnprintf(g_szLogBuff, sizeof(g_szLogBuff), fmt, vl);
     va_end(vl);
 
-    memset(g_szLogBuffFuncionLine, 0, sizeof(g_szLogBuffFuncionLine));
-    snprintf(g_szLogBuffFuncionLine, sizeof(g_szLogBuffFuncionLine),
-        "%s", g_szLogBuff);
-
-    m_category->error(g_szLogBuffFuncionLine);
+    m_category->error(g_szLogBuff);
 }
