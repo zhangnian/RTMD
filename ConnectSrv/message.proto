@@ -1,0 +1,12 @@
+package RTMD;
+
+
+message Message
+{
+	optional int32 type 	= 1;	// 消息类型
+	optional int32 srcid 	= 2;	// 发送消息的源地址标识
+	optional int32 dstid 	= 3;	// 接收消息的目的地址标识
+	optional int32 length 	= 4;	// 消息体的字节数
+	optional bytes content 	= 5;	// 消息内容
+}
+
